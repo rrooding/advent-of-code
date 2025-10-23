@@ -10,7 +10,7 @@ build/
 # Compiled files
 *.o
 *.out
-aoc
+.cache/
 
 # CMake files
 CMakeCache.txt

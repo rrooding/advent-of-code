@@ -55,7 +55,8 @@ target_link_libraries(aoc_{year_str}_{day_str} PUBLIC aoc_shared)
     # Create solution.cpp
     solution_content = f"""#include <memory>
 #include <string>
-#include "shared/solution.h"
+
+#include "shared/solution.hpp"
 
 namespace {{
 
@@ -94,6 +95,22 @@ REGISTER_SOLUTION({year}, {day}, createSolution);
     print(f"  ✓ Created {input_file}")
 
     print(f"\n✓ Successfully created solution for {year} day {day}")
+
+    # Run CMake to configure the new solution
+    print(f"\nReconfiguring CMake...")
+    import subprocess
+    result = subprocess.run(
+        ["cmake", "-B", "build"],
+        capture_output=True,
+        text=True
+    )
+
+    if result.returncode == 0:
+        print(f"  ✓ CMake configuration successful")
+    else:
+        print(f"  ⚠ CMake configuration failed:")
+        print(result.stderr)
+
     print(f"\nNext steps:")
     print(f"  1. Add your puzzle input to: {input_file}")
     print(f"  2. Implement the solution in: {solution_file}")

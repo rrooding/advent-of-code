@@ -1,22 +1,39 @@
-#include "shared/solution.h"
-
 #include <memory>
 #include <string>
+
+#include "shared/solution.hpp"
 
 namespace {
 
 class Day01Solution : public aoc::Solution {
  public:
   std::string part1(const std::string& input) override {
-    // TODO: Implement part 1
-    (void)input;  // Suppress unused parameter warning
-    return "Not implemented yet";
+    int floor = 0;
+    for (char c : input) {
+      if (c == '(') {
+        floor++;
+      } else if (c == ')') {
+        floor--;
+      }
+    }
+    return std::to_string(floor);
   }
 
   std::string part2(const std::string& input) override {
-    // TODO: Implement part 2
-    (void)input;  // Suppress unused parameter warning
-    return "Not implemented yet";
+    int floor = 0;
+    int position = 0;
+    for (char c : input) {
+      position++;
+      if (c == '(') {
+        floor++;
+      } else if (c == ')') {
+        floor--;
+      }
+      if (floor == -1) {
+        return std::to_string(position);
+      }
+    }
+    return "Never enters basement";
   }
 };
 

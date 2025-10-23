@@ -3,7 +3,7 @@
 #include <memory>
 #include <string>
 
-#include "shared/solution.h"
+#include "shared/solution.hpp"
 
 std::string readInput(int year, int day,
                       const std::string& filename = "input.txt") {
