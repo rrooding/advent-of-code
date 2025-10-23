@@ -1,0 +1,19 @@
+---
+# Clang-format configuration for Advent of Code project
+# Using Google C++ Style Guide
+BasedOnStyle: Google
+Language: Cpp
+Standard: c++20
+
+# Includes
+IncludeBlocks: Regroup
+IncludeCategories:
+  - Regex: '^<.*\.h>'
+    Priority: 1
+  - Regex: '^<.*>'
+    Priority: 2
+  - Regex: '^"shared/.*"'
+    Priority: 3
+  - Regex: '.*'
+    Priority: 4
+SortIncludes: true
