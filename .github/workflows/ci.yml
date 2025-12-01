@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Set up C++ toolchain
+        uses: aminya/setup-cpp@v1
+        with:
+          compiler: clang
+          cmake: true
+          ninja: true
+          vcpkg: false
+
+      - name: Show tool versions
+        run: |
+          clang++ --version || g++ --version
+          cmake --version
+          python3 --version
+
+      - name: Run tests
+        run: |
+          bash ./test.sh
