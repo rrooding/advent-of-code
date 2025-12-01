@@ -1,7 +1,7 @@
+#include "shared/solution.hpp"
+
 #include <memory>
 #include <string>
-
-#include "shared/solution.hpp"
 
 namespace {
 

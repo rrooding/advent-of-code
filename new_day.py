@@ -114,8 +114,8 @@ REGISTER_SOLUTION({year}, {day}, createSolution);
     print(f"\nNext steps:")
     print(f"  1. Add your puzzle input to: {input_file}")
     print(f"  2. Implement the solution in: {solution_file}")
-    print(f"  3. Build: cmake --build build")
-    print(f"  4. Run: ./build/aoc {year} {day}")
+    print(f"  3. Test: ./test.sh {year} {day}")
+    print(f"  4. Run: ./run.sh {year} {day}")
 
     return True
 
